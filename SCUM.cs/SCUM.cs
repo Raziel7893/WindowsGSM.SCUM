@@ -44,7 +44,7 @@ namespace WindowsGSM.Plugins
 
         // - Game server default values
         public string Port = "10000"; // Default port
-        public string QueryPort = "10000"; // Default query port. This is the port specified in the Server Manager in the client UI to establish a server connection.
+        public string QueryPort = "10002"; // Default query port. This is the port specified in the Server Manager in the client UI to establish a server connection.
         // TODO: Unsupported option
         public string Defaultmap = "Dedicated"; // Default map name
 
@@ -67,10 +67,11 @@ namespace WindowsGSM.Plugins
                 Error = $"{Path.GetFileName(shipExePath)} not found ({shipExePath})";
                 return null;
             }
-
+QueryPort
             // Prepare start parameter
             string param = $" {_serverData.ServerParam} ";
             param += $"-port={_serverData.ServerPort} ";
+            param += $"-QueryPort={_serverData.QueryPort} ";
             param += $"-MaxPlayers={_serverData.ServerMaxPlayer} ";
 
             Process p;
